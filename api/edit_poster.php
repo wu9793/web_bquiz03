@@ -11,3 +11,4 @@ foreach($_POST['id'] as $idx => $id){
         $Poster->save($row);
     }
 }
+to("../back.php?do=poster");
