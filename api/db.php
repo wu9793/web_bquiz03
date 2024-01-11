@@ -141,8 +141,6 @@ class DB
     }
 
 }
-
-
 function dd($array)
 {
     echo "<pre>";
@@ -153,32 +151,7 @@ function to($url){
     header("location:$url");
 }
 
-$Title=new DB('titles');
-$Total=new DB('total');
-$Bottom=new DB('bottom');
-$Ad=new DB('ad');
-$Mvim=new DB('mvim');
-$Image=new DB('image');
-$News=new DB('news');
-$Admin=new DB('admin');
-$Menu=new DB('menu');
+$Poster=new DB('poster');
 
-$tables=array_keys(get_defined_vars());
-
-// 解決db.php中當['do'] 的值不為已宣告的資料表變數的問題
-if(isset($_GET['do'])){
-    //$DB=${ucfirst($_GET['do'])};
-    $key=ucfirst(($_GET['do']));
-    if(in_array($key,$tables)){
-        $DB=$$key;
-    }
-}else{
-    $DB=$Title;
-}
-
-if(!isset($_SESSION['visited'])){
-    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
-    $_SESSION['visited']=1;
-}
 
 ?>
