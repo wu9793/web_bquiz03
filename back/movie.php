@@ -55,10 +55,10 @@
                     <button class="show-btn" data-id="<?= $movie['id']; ?>"><?=($movie['sh']==1)?'顯示':'隱藏';?></button>
                     <button class="sw-btn" 
                     data-id="<?=$movie['id'];?>"
-                     data-sw="<?=($idx!==0)?$movie[$idx-1]['id']:$movie['id'];?>" >往上</button>
+                     data-sw="<?=($idx!==0)?$movies[$idx-1]['id']:$movie['id'];?>" >往上</button>
                     <button class="sw-btn"
                     data-id="<?=$movie['id'];?>" 
-                    data-sw="<?=((count($movie)-1)!=$idx)?$movie[$idx+1]['id']:$po['id'];?>">往下</button>
+                    data-sw="<?=((count($movies)-1)!=$idx)?$movies[$idx+1]['id']:$movie['id'];?>">往下</button>
                     <button class="edit-btn" data-id="<?=$movie['id'];?>">編輯電影</button>
                     <button class="del-btn" data-id="<?=$movie['id'];?>">刪除電影</button>
                 </div>
