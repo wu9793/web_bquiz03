@@ -72,16 +72,16 @@
     ?>
 </div>
 <script>
-    $(".show-btn").on("click",fnution(){
+    $(".show-btn").on("click",function(){
 
     })
-    $(".sw-btn").on("click",fnution(){
+    $(".sw-btn").on("click",function(){
         
     })
-    $(".edit-btn").on("click",fnution(){
+    $(".edit-btn").on("click",function(){
         
     })
-    $(".del-btn").on("click",fnution(){
+    $(".del-btn").on("click",function(){
         
     })
 </script>
