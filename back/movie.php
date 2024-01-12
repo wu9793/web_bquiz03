@@ -92,13 +92,17 @@
         let sw=$(this).data('sw');
         let table='movie'
         $.post("../api/sw.php",{id,sw,table},()=>{
-            location.reload()
+            location.reload();
         }) 
     })
     $(".edit-btn").on("click",function(){
-        
+        let id=$(this).data('id');
+        location.href=`?do=edit_movie&id=${id}`;
     })
     $(".del-btn").on("click",function(){
-        
+        let id=$(this).data('id');
+        $.post("../api/sw.php",{id,table:'movie'},()=>{
+            location.reload();
+        }) 
     })
 </script>
