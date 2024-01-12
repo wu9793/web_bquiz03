@@ -1,14 +1,114 @@
+<style>
+    .lists {
+        /* position: relative; */
+        left: 114px;
+    }
+
+    .item * {
+        box-sizing: border-box;
+    }
+
+    .item {
+        width: 200px;
+        height: 240px;
+        margin: auto;
+        box-sizing: border-box;
+        display: none;
+    }
+
+    .item div img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .item div {
+        text-align: center;
+    }
+
+    
+    .left,.right{
+        width: 0;
+	    border: 20px solid black;
+	    border-top-color: transparent;
+	    border-bottom-color: transparent;
+    }
+
+    .left{
+        border-left-width: 0;
+    }
+    .right{
+        border-right-width: 0;
+    }
+
+    .btns{
+        width: 360px;
+        height: 100px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .btn img{
+        width: 60px;
+        height: 80px;
+    }
+
+    .btn{
+        font-size: 12px;
+        text-align: center;
+        flex-shrink: 0;
+        width: 90px;
+    }
+
+    .controls{
+        width: 420px;
+        height: 100px;
+        position: relative;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>
 <div class="half" style="vertical-align:top;">
     <h1>預告片介紹</h1>
     <div class="rb tab" style="width:95%;">
-        <div>
-            <ul class="lists">
-            </ul>
-            <ul class="controls">
-            </ul>
+        <div class="lists">
+            <?php
+            $posters = $Poster->all(['sh' => 1], " order by rank");
+            foreach ($posters as $idx => $poster) {
+            ?>
+                <div class="item">
+                    <div><img src="./img/<?= $poster['img']; ?>" alt=""></div>
+                    <div><?= $poster['name']; ?></div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+
+        <div class="controls">
+            <div class="left"></div>
+            <div class="btns">
+                <?php
+                foreach ($posters as $idx => $poster) {
+                ?>
+                <div class="btn">
+                    <div><img src="../img/<?=$poster['img'];?>" alt=""></div>
+                    <div><?=$poster['name'];?></div>
+                </div>
+                <?php
+                }
+
+                ?>
+            </div>
+            <div class="right"></div>
         </div>
     </div>
 </div>
+<script>
+    $(".item").eq(0).show();
+</script>
+
 <style>
     .movies {
         display: flex;
