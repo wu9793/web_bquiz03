@@ -114,13 +114,18 @@
  $(".item").eq(0).show();
 let total=$(".btn").length;
 let now=0; 
+let next=0;
  let timer=setInterval(()=>{slide()},3000)
- function slide(){
+ function slide(n){
     let ani=$(".item").eq(now).data("ani");
-    let next=now+1;
-        if(next>=total){
-            naxt=0;
-        }
+    if(typeof(n)=='undefined'){
+            next=now+1;
+            if(next>=total){
+                naxt=0;
+            }
+    }else{
+        next=n;
+    }
     switch(ani){
         case 1:$(".item").eq(now).fadeOut(1000,function(){
              $(".item").eq(next).fadeIn(1000);
@@ -157,6 +162,22 @@ $(".left,.right").on("click",function(){
     }
     $(".btn").animate({right:90*p})
 })
+
+$(".btn").on('click',function(){
+    let idx=$(this).index()
+    slide(idx);
+})
+
+
+// 滑鼠移上後停止動畫播放
+$(".btn").hover(
+    function(){
+        clearInterval(timer)
+    },
+    function(){
+        timer=setInterval(()=>{slide()},3000)
+    }
+)
 </script>
 
 <style>
