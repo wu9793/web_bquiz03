@@ -158,6 +158,7 @@ $sess=[1=>'1400~1600',
         5=>'2200~2400',];
 $Poster=new DB('poster');
 $Movie=new DB('movie');
+$Order=new DB('order');
 
 
 ?>
