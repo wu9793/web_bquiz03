@@ -74,7 +74,7 @@ foreach($ords as $ord){
     <div>您已經勾選 <span id="tickets">0</span>張票，最多可以購買四張票</div>
     <div>
         <button onclick="$('#select').show();$('#booking').hide()">上一步</button>
-        <button>訂購</button>
+        <button onclick="checkout()">訂購</button>
     </div>
 </div>
 
