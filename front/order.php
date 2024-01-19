@@ -15,7 +15,7 @@
             <select name="session" id="session"></select>
         </div>
         <div>
-            <button onclick="$('#select').hide();$('#booking').show()">確定</button>
+            <button onclick="booking()">確定</button>
             <button>重置</button>
         </div>
     </div>
@@ -70,13 +70,13 @@
     }
     // 	使用ajax來載入劃位畫面
     function booking(){
-        let order = {movie_id:("#movie").val(),
+        let order = {movie_id:$("#movie").val(),
                     date:$("#date").val(),
                     session:$("#session").val()}
         $.get("./api/booking.php",order,(booking)=>{
             $('#booking').html(booking);
             $('#select').hide();
-            $('#show').show();
+            $('#booking').show();
         })
     }
 </script>
