@@ -21,31 +21,10 @@
     </div>
 </div>
 
-<style>
-    #room {
-        background-image: url('./icon/03D04.png');
-        background-position: center;
-        background-repeat: none;
-        width: 540px;
-        height: 370px;
-        margin: auto;
-    }
-</style>
+
 <div id="booking" style='display:none'>
-    <div id="room"></div>
-    <div id="info">
 
-        <button onclick="$('#select').show();$('#booking').hide()">上一步</button>
-        <button>訂購</button>
-    </div>
 </div>
-
-
-
-
-
-
-
 
 <script>
     let url = new URL(window.location.href)
@@ -87,6 +66,17 @@
             date
         }, (sessions) => {
             $("#session").html(sessions);
+        })
+    }
+    // 	使用ajax來載入劃位畫面
+    function booking(){
+        let order = {movie_id:("#movie").val(),
+                    date:$("#date").val(),
+                    session:$("#session").val()}
+        $.get("./api/booking.php",order,(booking)=>{
+            $('#booking').html(booking);
+            $('#select').hide();
+            $('#show').show();
         })
     }
 </script>
