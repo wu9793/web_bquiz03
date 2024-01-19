@@ -13,9 +13,46 @@ $session=$_GET['session'];
         width: 540px;
         height: 370px;
         margin: auto;
+        box-sizing: border-box;
+        padding: 19px 112px 0 112px; 
+    }
+
+    .seat{
+        width: 63px;
+        height: 85px;
+        position: relative;
+    }
+
+    .seats{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .chk{
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
     }
 </style>
-<div id="room"></div>
+<div id="room">
+    <div class="seats">
+        <?php
+        for($i=0;$i<20;$i++){
+            echo "<div class='seat'>";
+            echo "<div class='ct'>";
+            echo (floor($i/5)+1)."排";
+            echo (($i%5)+1). "號";
+            echo "</div>";
+            echo "<div class='ct'>";
+            echo "<img src='./icon/03D02.png'>";
+            echo "</div>";
+            echo "<input class='chk' type='checkbox' name='chk'>";
+            echo "</div>";
+        };
+        ?>
+    </div>
+
+</div>
     <div id="info">
         <div>您選擇的電影是:<?=$movie['name']?></div>
         <div>您選擇的時刻是:<?=$date;?> <?=$session;?></div>
